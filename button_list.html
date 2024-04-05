@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".agregar").click(function() {
+            var nombreFruta = $("#nombre_fruta").val();
+            if (nombreFruta !== "") {
+                $("#listado_frutas ul").append("<li>" + nombreFruta + " <button type='button' class='borrar'>Borrar</button></li>");
+                $("#nombre_fruta").val("");
+            }
+        });
+
+        $("#listado_frutas").on("click", ".borrar", function() {
+            $(this).parent().remove();
+        });
+    });
+</script>
+</head>
+<body>
+<div id="nombre">
+	<span>Nombre: </span>
+	<input id="nombre_fruta" class="texto" type="text"><button type="button" class="agregar">Agregar</button>
+</div>
+
+<!--Si queremos eliminar los items de la lista dada habría que añadirles la clase <class="borrar"> y listo.-->
+
+<div id="listado_frutas">
+	<ul>
+		<li>
+			Pera <button type="button">Borrar</button>
+		</li>
+		<li>
+			Manzana <button type="button">Borrar</button>
+		</li>
+		<li>
+			Naranja <button type="button">Borrar</button>
+		</li>
+	</ul>
+</div>
+
+</body>
+</html>
